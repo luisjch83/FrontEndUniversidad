@@ -10,3 +10,4 @@ Create login and registration UI (User Interface) template with Angular 8, Angul
 - Run `npm install`
 - Run `ng serve`
 "# UleadFrontUltimaVersion" 
+"# UleadFrontUltimaVersion" 
