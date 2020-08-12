@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Ulead-Finanzas</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://cdn.syncfusion.com/ej2/ej2-base/styles/material.css" rel="stylesheet" />
+    <link href="https://cdn.syncfusion.com/ej2/ej2-buttons/styles/material.css" rel="stylesheet" />
+    <link href="https://cdn.syncfusion.com/ej2/ej2-inputs/styles/material.css" rel="stylesheet" />
+    <link href="https://cdn.syncfusion.com/ej2/ej2-popups/styles/material.css" rel="stylesheet" />
+    <link href="https://cdn.syncfusion.com/ej2/ej2-lists/styles/material.css" rel="stylesheet" />
+    <link href="https://cdn.syncfusion.com/ej2/ej2-calendars/styles/material.css" rel="stylesheet" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js">
+    </script> 
+<script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+<!-- polyfiller file to detect and load polyfills -->
+<script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+  webshims.setOptions('waitReady', false);
+  webshims.setOptions('forms-ext', {types: 'date'});
+  webshims.polyfill('forms forms-ext');
+</script>
+<script>
+$(document).ready(function() {
+  // Global ajax cursor change
+  $(document)
+    .ajaxStart(function () {
+      $('#myModal').show();
+    })
+    .ajaxStop(function () {
+      $('#myModal').hide();
+    });
+});
+</script>
+<style>
+  #log {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #log td, #log th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #log tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #log tr:hover {background-color: #ddd;}
+  
+  #log th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+  }
+  </style>
+
+<style>
+    .loader2 {
+      
+      border: 16px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 16px solid #3498db;
+      width: 120px;
+      height: 120px;
+      -webkit-animation: spin 2s linear infinite; /* Safari */
+      animation: spin 2s linear infinite;
+    }
+    
+    /* Safari */
+    @-webkit-keyframes spin {
+      0% { -webkit-transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); }
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    </style>
+<script type="text/javascript">
+  //function to check validation (Required field)
+  /*function checkReqFields(){
+    var returnValue;
+    var asunto=document.getElementById("asunto").value;
+    var cuerpo=document.getElementById("cuerpo").value;
+    var correo=document.getElementById("correo").value;
+    
+    returnValue=true;
+    if(asunto.trim()==""){
+      document.getElementById("reqAsunto").innerHTML="* Campo requerido";
+      returnValue=false;
+    }
+    if(cuerpo.trim()==""){
+      document.getElementById("reqCuerpo").innerHTML="* Campo requerido";
+      returnValue=false;
+    }	
+    if(correo.trim()==""){
+      document.getElementById("reqCorreo").innerHTML="* Campo requerido";
+      returnValue=false;
+    }								
+    return returnValue;
+  }*/
+</script>
+<style type="text/css">
+  .reqError{
+    color: #ff0000; /*Red Color*/
+    font-weight: bold;
+  }
+</style>
+<style type="text/css">
+  body
+  {
+      font-family: Arial;
+      font-size: 10pt;
+  }
+
+  .modal3 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: transparent;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+  
+  .modal
+  {
+      position: fixed;
+      z-index: 999;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background-color: Black;
+      filter: alpha(opacity=60);
+      opacity: 0.6;
+      -moz-opacity: 0.8;
+  }
+  .center
+  {
+      z-index: 1000;
+      margin: 300px auto;
+      padding: 10px;
+      width: 130px;
+      background-color: White;
+      border-radius: 10px;
+      filter: alpha(opacity=100);
+      opacity: 1;
+      -moz-opacity: 1;
+  }
+  .center img
+  {
+      height: 128px;
+      width: 128px;
+  }
+</style>
+
+<link rel="stylesheet" href="styles.6858c2cb6ef6428ba7da.css"></head>
+<body>
+  <app-root></app-root>
+<script src="runtime-es2015.858f8dd898b75fe86926.js" type="module"></script><script src="polyfills-es2015.27661dfa98f6332c27dc.js" type="module"></script><script src="runtime-es5.741402d1d47331ce975c.js" nomodule></script><script src="polyfills-es5.4e06eb653a3c8a2d581f.js" nomodule></script><script src="scripts.a456ebc794499ce7610b.js"></script><script src="main-es2015.f6bc23b90958bbe52400.js" type="module"></script><script src="main-es5.fc4ef8479a2e930b7c12.js" nomodule></script></body>
+</html>
